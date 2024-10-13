@@ -35,7 +35,7 @@ then
 	echo "==============================================================="
 	echo "Docker Engine Installation is completed."
 	echo "==============================================================="
-elif lsb_release -i | grep -q "Debian"
+elif cat /etc/os-release | grep -q "Debian"
 then
 	echo "Found Debian."
 	echo -n "Installing......."
@@ -57,7 +57,15 @@ then
   	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-	echo -n "============================================================="
+
+	sudo usermod -aG docker "$USER"
+	sudo newgrp docker
+
+	echo
+	echo
+	echo "============================================================="
 	echo "Docker Enginer Installation is completed."
-	echo -n "============================================================="
+	echo "============================================================="
+	echo
+	echo
 fi

@@ -18,23 +18,25 @@ then
 	 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 	echo
 	# Add Docker's official GPG key:
-	# sudo apt-get update
+	 sudo apt-get update
 	sudo apt-get install ca-certificates curl -y
 	sudo install -m 0755 -d /etc/apt/keyrings
 	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 	sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 	# Add the repository to Apt sources:
-	echo
+	echo \
   	"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   	$(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	sudo apt-get update
 	echo
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+	echo "==============================================================="
 	echo "Docker Engine Installation is completed."
-
+	echo "==============================================================="
 elif lsb_release -i | grep -q "Debian"
+then
 	echo "Found Debian."
 	echo -n "Installing......."
 	
@@ -55,4 +57,7 @@ elif lsb_release -i | grep -q "Debian"
   	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+	echo -n "============================================================="
+	echo "Docker Enginer Installation is completed."
+	echo -n "============================================================="
 fi

@@ -12,8 +12,10 @@ sudo apt-get install nano -y
 echo "Starting to install Docker Engine..........................."
 if lsb_release -i | grep -q "Ubuntu"
 then
-	echo "Found Ubuntu."
-	echo -n "Installing......."
+	echo "==============================================================="
+ 	echo "Found Ubuntu as Operating System..."
+	echo -n "Installing Docker Engine now..."
+ 	echo "==============================================================="
 	for pkg in docker.io docker-doc docker-compose docker-compose-v2\
 	 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 	echo
@@ -37,8 +39,10 @@ then
 	echo "==============================================================="
 elif cat /etc/os-release | grep -q "Debian"
 then
-	echo "Found Debian."
-	echo -n "Installing......."
+	echo "==============================================================="
+ 	echo "Found Debian as Operating System..."
+	echo -n "Installing Docker Engine now..."
+ 	echo "==============================================================="
 	
 	for pkg in docker.io docker-doc docker-compose\
 	 podman-docker containerd runc; do sudo apt-get remove $pkg; done

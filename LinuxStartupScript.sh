@@ -94,3 +94,16 @@ then
 	echo "==============================================================="
 	echo "==============================================================="
 fi
+
+echo "Restart in 5 ====="
+sleep 1
+echo "Restart in 4 ===="
+sleep 1
+echo "Restart in 3 ==="
+sleep 1
+echo "Restart in 2 =="
+sleep 1
+echo "Restart in 1 ="
+sleep 1
+
+sudo reboot

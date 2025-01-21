@@ -2,16 +2,24 @@
 #
 # Author: Bac Tran
 #
+echo "==============================================================="
 echo "Starting to update and upgrade..........................."
 sudo apt-get update && sudo apt-get upgrade -y
+echo "==============================================================="
 
+echo "==============================================================="
 echo "Starting to install ssh server..........................."
 sudo apt-get install openssh-server -y
 sudo systemctl restart ssh
+echo "==============================================================="
 
-echo "Starting to install nano"
+echo "==============================================================="
+echo "Starting to install nano + htop + iftop"
 sudo apt-get install nano -y
+sudo apt install htop iftop -y
+echo "==============================================================="
 
+echo "==============================================================="
 echo "Starting to install Docker Engine..........................."
 if lsb_release -i | grep -q "Ubuntu"
 then
@@ -40,9 +48,13 @@ then
  	echo "==============================================================="
   	sudo usermod -aG docker cse
    	sudo newgrp docker
+    	echo "==============================================================="
+     	echo "==============================================================="
 	echo "==============================================================="
 	echo "Docker Engine Installation is completed."
 	echo "==============================================================="
+ 	echo "==============================================================="
+  	echo "==============================================================="
 elif cat /etc/os-release | grep -q "Debian"
 then
 	echo "==============================================================="

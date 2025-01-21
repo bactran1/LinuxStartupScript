@@ -45,9 +45,9 @@ then
 	sudo apt-get update
 	echo
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
- 	echo "==============================================================="
-  	sudo usermod -aG docker cse
-   	sudo newgrp docker
+ 	#echo "==============================================================="
+  	#sudo usermod -aG docker cse
+   	#sudo newgrp docker
     	echo "==============================================================="
      	echo "==============================================================="
 	echo "==============================================================="
@@ -80,11 +80,11 @@ then
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
  
-	echo
-	echo
+	echo "==============================================================="
+	echo "==============================================================="
 	echo "============================================================="
 	echo "Docker Enginer Installation is completed."
 	echo "============================================================="
-	echo
-	echo
+	echo "==============================================================="
+	echo "==============================================================="
 fi

@@ -25,7 +25,7 @@ if lsb_release -i | grep -q "Ubuntu"
 then
 	echo "==============================================================="
  	echo "Found Ubuntu as Operating System..."
-	echo -n "Installing Docker Engine now..."
+	echo "Installing Docker Engine now..."
  	echo "==============================================================="
 	for pkg in docker.io docker-doc docker-compose docker-compose-v2\
 	 podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -45,13 +45,14 @@ then
 	sudo apt-get update
 	echo
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
- 	#echo "==============================================================="
-  	#sudo usermod -aG docker cse
+ 	echo "==============================================================="
+  	sudo usermod -aG docker $USER
    	#sudo newgrp docker
     	echo "==============================================================="
      	echo "==============================================================="
 	echo "==============================================================="
 	echo "Docker Engine Installation is completed."
+ 	echo "Please run command -- newgrp docker -- to initiate the change"
 	echo "==============================================================="
  	echo "==============================================================="
   	echo "==============================================================="
@@ -79,11 +80,16 @@ then
   	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	sudo apt-get update
 	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
- 
+
+	echo "==============================================================="
+  	sudo usermod -aG docker $USER
+   	#sudo newgrp docker
+  
 	echo "==============================================================="
 	echo "==============================================================="
 	echo "============================================================="
 	echo "Docker Enginer Installation is completed."
+ 	echo "Please run command -- newgrp docker -- to initiate the change"
 	echo "============================================================="
 	echo "==============================================================="
 	echo "==============================================================="

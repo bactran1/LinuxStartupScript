@@ -20,6 +20,14 @@ sudo apt install htop iftop -y
 echo "==============================================================="
 
 echo "==============================================================="
+echo "Starting to install miniconda"
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-py310_25.5.1-0-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+echo "==============================================================="
+
+echo "==============================================================="
 echo "Starting to install Docker Engine..........................."
 if lsb_release -i | grep -q "Ubuntu"
 then
@@ -89,7 +97,7 @@ then
 	echo "==============================================================="
 	echo "============================================================="
 	echo "Docker Enginer Installation is completed."
- 	echo "Please run command -- newgrp docker -- to initiate the change"
+ 	echo "Please run command -- newgrp docker -- to initiate the change if needed"
 	echo "============================================================="
 	echo "==============================================================="
 	echo "==============================================================="
